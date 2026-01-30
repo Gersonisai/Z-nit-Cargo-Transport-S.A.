@@ -3,1039 +3,1271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zénit Cargo & Transport S.A. | Logística y Transporte en Bolivia</title>
-    <meta name="description" content="Zénit Cargo & Transport S.A. ofrece transporte aéreo y terrestre de carga y pasajeros, gestión de flotas y servicios logísticos integrales en Bolivia.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Zénit Cargo & Transport S.A. | Logística y Transporte Aéreo y Terrestre</title>
+    <meta name="description" content="Empresa especializada en transporte aéreo y terrestre de carga y pasajeros, gestión de flotas y servicios de logística integral en Bolivia.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #1a3a5f;
-            --secondary: #2c5a8a;
-            --accent: #e6a23c;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --success: #28a745;
-            --logistics-blue: #1e88e5;
+            /* Paleta corporativa Zénit con toques aviación/logística */
+            --primary-dark: #0a1628;
+            --primary-navy: #1a2942;
+            --accent-gold: #c9a961;
+            --accent-gold-light: #e4d4a8;
+            --accent-sky: #0d5a8f;
+            --accent-sky-light: #1a7bb9;
+            --accent-orange: #d97236;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-sky: #f0f7fc;
+            --border-subtle: #e2e8f0;
+            
+            /* Typography */
+            --font-display: 'Crimson Pro', serif;
+            --font-body: 'Work Sans', sans-serif;
+            
+            /* Spacing */
+            --section-padding: clamp(4rem, 8vw, 8rem);
+            --container-max: 1280px;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        html {
-            scroll-behavior: smooth;
         }
         
         body {
-            background-color: #f5f7fa;
-            color: #333;
+            font-family: var(--font-body);
+            color: var(--text-primary);
             line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--bg-white);
         }
         
-        /* Header Styles */
+        /* Header */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--logistics-blue));
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
         
-        .container {
-            width: 90%;
-            max-width: 1200px;
+        header.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        nav {
+            max-width: var(--container-max);
             margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        .header-content {
+            padding: 1.25rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo h1 {
+            font-family: var(--font-display);
             font-size: 1.5rem;
             font-weight: 700;
-        }
-        
-        .logo span {
-            color: var(--accent);
-        }
-        
-        nav ul {
+            color: var(--primary-dark);
+            text-decoration: none;
+            letter-spacing: -0.02em;
             display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-icon {
+            font-size: 1.75rem;
+        }
+        
+        .logo-accent {
+            color: var(--accent-sky);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
             list-style: none;
         }
         
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: white;
+        .nav-links a {
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
-            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
             position: relative;
-            font-size: 0.9rem;
         }
         
-        nav ul li a:hover {
-            color: var(--accent);
+        .nav-links a:hover {
+            color: var(--accent-sky);
         }
         
-        nav ul li a::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -4px;
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s;
+            background: var(--accent-sky);
+            transition: width 0.3s ease;
         }
         
-        nav ul li a:hover::after {
+        .nav-links a:hover::after {
             width: 100%;
         }
         
-        .mobile-menu {
+        .mobile-menu-btn {
             display: none;
-            font-size: 1.5rem;
+            background: none;
+            border: none;
             cursor: pointer;
-            color: white;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--primary-dark);
+            margin: 5px 0;
+            transition: 0.3s;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26,58,95,0.8), rgba(30,136,229,0.8)), url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-        
-        .hero h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-        
-        .btn:hover {
-            background-color: #d18a1a;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .btn-logistics {
-            background-color: var(--logistics-blue);
-            margin-left: 0.5rem;
-        }
-        
-        .btn-logistics:hover {
-            background-color: #1976d2;
-        }
-        
-        .btn-secondary {
-            background-color: var(--secondary);
-        }
-        
-        .btn-secondary:hover {
-            background-color: #1f4a75;
-        }
-        
-        .btn-small {
-            padding: 0.5rem 1rem;
-            font-size: 0.8rem;
-            border-radius: 20px;
-        }
-        
-        /* Section Styles */
-        section {
-            padding: 3rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .section-title h2 {
-            font-size: 1.8rem;
-            color: var(--primary);
+            margin-top: 80px;
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--accent-sky) 0%, var(--accent-sky-light) 100%);
             position: relative;
-            display: inline-block;
-            margin-bottom: 1rem;
+            overflow: hidden;
         }
         
-        .section-title h2::after {
+        .hero::before {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 80% 30%, rgba(217, 114, 54, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 20% 70%, rgba(201, 169, 97, 0.12) 0%, transparent 50%);
+            pointer-events: none;
         }
         
-        .section-title p {
-            color: #666;
-            max-width: 700px;
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: var(--container-max);
             margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .hero-subtitle {
+            font-family: var(--font-body);
             font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-gold-light);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.1s forwards;
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700;
+            color: var(--bg-white);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+        
+        .hero-description {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 680px;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 3rem;
+            max-width: 900px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+        
+        .hero-stat {
+            text-align: left;
+        }
+        
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--bg-white);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-stat-label {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
         }
         
         /* Services Section */
+        .services {
+            padding: var(--section-padding) 2rem;
+            background: var(--bg-white);
+        }
+        
+        .services-header {
+            max-width: var(--container-max);
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+        
+        .section-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-sky);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .section-description {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
         .services-grid {
+            max-width: var(--container-max);
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
         }
         
         .service-card {
-            background-color: white;
-            border-radius: 10px;
+            background: var(--bg-white);
+            border: 1px solid var(--border-subtle);
+            padding: 3rem;
+            transition: all 0.3s ease;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid var(--logistics-blue);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-sky), var(--accent-orange));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
         }
         
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent-sky-light);
         }
         
-        .service-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1.2rem;
-            text-align: center;
-        }
-        
-        .service-body {
-            padding: 1.2rem;
-        }
-        
-        .service-body h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+        .service-card:hover::before {
+            transform: scaleX(1);
         }
         
         .service-icon {
-            font-size: 2.5rem;
-            color: var(--logistics-blue);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .service-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-dark);
             margin-bottom: 1rem;
-            text-align: center;
+        }
+        
+        .service-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .service-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .service-features li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .service-features li::before {
+            content: '→';
+            color: var(--accent-sky);
+            font-weight: 700;
+            font-size: 1.2rem;
         }
         
         /* Fleet Section */
+        .fleet {
+            padding: var(--section-padding) 2rem;
+            background: var(--bg-sky);
+        }
+        
         .fleet-container {
-            background-color: var(--light);
-            padding: 2rem;
-            border-radius: 10px;
-            margin-top: 2rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        
+        .fleet-header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
         
         .fleet-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
         
-        .fleet-item {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+        .fleet-card {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-left: 4px solid var(--accent-sky);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
         
-        .fleet-item:hover {
-            transform: translateY(-5px);
+        .fleet-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border-left-width: 6px;
         }
         
-        .fleet-item h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
+        .fleet-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
         }
         
-        /* Operations Section */
-        .operations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
+        .fleet-name {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.75rem;
         }
         
-        .operation-item {
-            background-color: white;
-            border-radius: 10px;
+        .fleet-type {
+            color: var(--accent-sky);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        
+        .fleet-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Coverage Section */
+        .coverage {
+            padding: var(--section-padding) 2rem;
+            background: var(--primary-dark);
+            color: var(--bg-white);
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
         }
         
-        .operation-item:hover {
-            transform: translateY(-5px);
+        .coverage::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 70% 30%, rgba(26, 123, 185, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 30% 70%, rgba(217, 114, 54, 0.15) 0%, transparent 50%);
+            pointer-events: none;
         }
         
-        .operation-img {
-            height: 200px;
-            background-color: #e9ecef;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-weight: bold;
-        }
-        
-        .operation-content {
-            padding: 1.2rem;
-        }
-        
-        .operation-content h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        /* About Section */
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .company-info {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin-top: 1.5rem;
-        }
-        
-        .company-info h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-        
-        .company-contact {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 1rem;
-        }
-        
-        .founder-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 1rem;
-        }
-        
-        /* Group Section */
-        .group-grid {
+        .coverage-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
         }
         
-        .group-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+        .coverage-content h2 {
+            margin-bottom: 2rem;
         }
         
-        .group-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .group-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .group-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        /* Contact Section */
-        .contact-container {
+        .coverage-list {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1.5rem;
         }
         
-        .contact-info {
-            flex: 1;
-        }
-        
-        .contact-item {
+        .coverage-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 1.2rem;
+            gap: 1rem;
         }
         
-        .contact-icon {
-            background-color: var(--primary);
-            color: white;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            flex-shrink: 0;
-            font-size: 0.9rem;
+        .coverage-item-icon {
+            font-size: 1.5rem;
+            margin-top: 0.25rem;
         }
         
-        .contact-message {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        .coverage-item-text h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .coverage-item-text p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+        
+        .coverage-stats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .coverage-stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .coverage-stat-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--accent-gold-light);
+            margin-bottom: 0.75rem;
+        }
+        
+        .coverage-stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--bg-white);
+            margin-bottom: 0.5rem;
+        }
+        
+        .coverage-stat-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+        
+        /* Investment Section */
+        .investment {
+            padding: var(--section-padding) 2rem;
+            background: var(--bg-white);
+        }
+        
+        .investment-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        
+        .investment-header {
             text-align: center;
-            margin-top: 1.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .investment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .investment-card {
+            background: var(--bg-light);
+            padding: 3rem;
+            border-top: 3px solid var(--accent-orange);
+            transition: all 0.3s ease;
+        }
+        
+        .investment-card:hover {
+            background: var(--bg-white);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+        
+        .investment-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .investment-amount {
+            font-family: var(--font-display);
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--accent-sky);
+            margin-bottom: 1rem;
+        }
+        
+        .investment-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: var(--section-padding) 2rem;
+            background: linear-gradient(135deg, var(--accent-sky) 0%, var(--accent-sky-light) 100%);
+            color: var(--bg-white);
+            text-align: center;
+        }
+        
+        .cta-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--bg-white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .cta p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--bg-white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--bg-white);
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 2rem 0 1rem;
+            background: var(--primary-navy);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 4rem 2rem 2rem;
         }
         
         .footer-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-brand {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bg-white);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .footer-section h4 {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--bg-white);
             margin-bottom: 1.5rem;
         }
         
-        .footer-column {
-            flex: 1;
-        }
-        
-        .footer-column h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        .footer-column ul {
+        .footer-links {
             list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
         
-        .footer-column ul li {
-            margin-bottom: 0.6rem;
-        }
-        
-        .footer-column ul li a {
-            color: #ccc;
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            transition: color 0.3s;
             font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
         
-        .footer-column ul li a:hover {
-            color: white;
+        .footer-links a:hover {
+            color: var(--accent-gold);
         }
         
-        .copyright {
-            text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid #444;
-            color: #aaa;
-            font-size: 0.8rem;
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
         }
         
-        /* Responsive Styles */
-        @media (min-width: 768px) {
-            .hero {
-                padding: 5rem 0;
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-legal a:hover {
+            color: var(--accent-gold);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: 1fr;
             }
             
-            .hero h2 {
+            .coverage-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: clamp(3rem, 6vw, 4rem);
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-title {
                 font-size: 2.5rem;
             }
             
-            .about-content {
-                flex-direction: row;
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
-            .contact-container {
-                flex-direction: row;
+            .fleet-grid,
+            .investment-grid {
+                grid-template-columns: 1fr;
             }
             
-            .footer-content {
-                flex-direction: row;
-            }
-        }
-        
-        @media (max-width: 767px) {
-            .logo h1 {
-                font-size: 1.3rem;
+            .cta-buttons {
+                flex-direction: column;
             }
             
-            nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
+            .btn {
+                text-align: center;
                 width: 100%;
-                background: var(--primary);
-                padding: 1rem;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
             
-            nav.active {
-                display: block;
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
-            nav ul {
+            .footer-bottom {
                 flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
             
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .btn-container {
-                display: flex;
+            .footer-legal {
                 flex-direction: column;
-                align-items: center;
                 gap: 0.5rem;
-            }
-            
-            .btn-logistics {
-                margin-left: 0;
             }
         }
         
         @media (max-width: 480px) {
-            .container {
-                width: 95%;
+            nav {
+                padding: 1rem 1.5rem;
             }
             
-            .services-grid, .operations-grid, .group-grid {
-                grid-template-columns: 1fr;
+            .hero-content,
+            .services,
+            .fleet,
+            .coverage,
+            .investment,
+            .cta,
+            footer {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
             }
             
-            .fleet-grid {
-                grid-template-columns: 1fr;
+            .service-card,
+            .fleet-card,
+            .investment-card {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <h1>ZÉNIT <span>CARGO & TRANSPORT</span> S.A.</h1>
-                </div>
-                <div class="mobile-menu" aria-label="Abrir menú">☰</div>
-                <nav>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#flota">Nuestra Flota</a></li>
-                        <li><a href="#operaciones">Operaciones</a></li>
-                        <li><a href="#grupo-zenit">Grupo Zénit</a></li>
-                        <li><a href="#nosotros">Nosotros</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">
+                <span class="logo-icon">✈️</span>
+                <span>Zénit <span class="logo-accent">Cargo & Transport</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#flota">Flota</a></li>
+                <li><a href="#cobertura">Cobertura</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="inicio" class="hero" aria-labelledby="hero-title">
-        <div class="container">
-            <h2 id="hero-title">Soluciones Logísticas Integrales en Bolivia</h2>
-            <p>Zénit Cargo & Transport S.A. ofrece servicios de transporte aéreo y terrestre de carga y pasajeros, gestión de flotas y logística integral para empresas en Bolivia.</p>
-            <div class="btn-container">
-                <a href="#servicios" class="btn" aria-label="Conocer nuestros servicios">Nuestros Servicios</a>
-                <a href="#contacto" class="btn btn-logistics" aria-label="Solicitar cotización">Solicitar Cotización</a>
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="breadcrumb">
+                <a href="https://grupo-z-nit-s-a-three.vercel.app/">GRUPO ZÉNIT</a>
+                <span>/</span>
+                <span>Cargo & Transport</span>
             </div>
-        </div>
-    </section>
-
-    <!-- Servicios -->
-    <section id="servicios" class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nuestros Servicios</h2>
-                <p>Ofrecemos una amplia gama de servicios logísticos y de transporte adaptados a las necesidades de nuestros clientes</p>
-            </div>
-            <div class="services-grid">
-                <!-- Transporte Aéreo -->
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3>Transporte Aéreo</h3>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-icon">✈️</div>
-                        <h4>Carga y Pasajeros</h4>
-                        <p>Servicios de transporte aéreo de carga y pasajeros en rutas nacionales e internacionales, con avionetas y aeronaves adaptadas a diferentes necesidades.</p>
-                    </div>
+            <div class="hero-subtitle">Filial de GRUPO ZÉNIT S.A.</div>
+            <h1 class="hero-title">Conectando Bolivia por Aire y Tierra</h1>
+            <p class="hero-description">
+                Empresa líder en transporte aéreo y terrestre de carga y pasajeros, con servicios de logística integral que conectan las principales rutas nacionales e internacionales.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">Bs. 4.5M</div>
+                    <div class="hero-stat-label">Inversión Inicial</div>
                 </div>
-                
-                <!-- Transporte Terrestre -->
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3>Transporte Terrestre</h3>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-icon">🚛</div>
-                        <h4>Logística por Carretera</h4>
-                        <p>Transporte terrestre de carga y pasajeros con flota moderna de camiones y vehículos especializados para diferentes tipos de mercancías.</p>
-                    </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">24/7</div>
+                    <div class="hero-stat-label">Operación Continua</div>
                 </div>
-                
-                <!-- Logística Integral -->
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3>Logística Integral</h3>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-icon">📦</div>
-                        <h4>Gestión de Cadena de Suministro</h4>
-                        <p>Servicios de logística integral incluyendo almacenamiento, distribución, consolidación y desconsolidación de carga para optimizar su cadena de suministro.</p>
-                    </div>
-                </div>
-                
-                <!-- Servicios Especializados -->
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3>Servicios Especializados</h3>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-icon">🔧</div>
-                        <h4>Soluciones a Medida</h4>
-                        <p>Agenciamiento de carga, transitarios, despachantes de aduana, mantenimiento y reparación de vehículos, y consultoría en logística y cadena de suministro.</p>
-                    </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">Nacional</div>
+                    <div class="hero-stat-label">Cobertura Completa</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Flota -->
-    <section id="flota" class="fleet">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nuestra Flota</h2>
-                <p>Contamos con una flota moderna y diversificada para atender diferentes necesidades de transporte</p>
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="services-header">
+            <div class="section-label">Nuestros Servicios</div>
+            <h2 class="section-title">Soluciones Logísticas Integrales</h2>
+            <p class="section-description">
+                Ofrecemos servicios especializados de transporte y logística que garantizan eficiencia, seguridad y puntualidad en cada operación.
+            </p>
+        </div>
+        <div class="services-grid">
+            <!-- Transporte Aéreo -->
+            <div class="service-card">
+                <span class="service-icon">✈️</span>
+                <h3 class="service-title">Transporte Aéreo</h3>
+                <p class="service-description">
+                    Operación de aeronaves para transporte de carga y pasajeros en rutas nacionales e internacionales, con especial énfasis en regiones de difícil acceso.
+                </p>
+                <ul class="service-features">
+                    <li>Carga aérea nacional e internacional</li>
+                    <li>Vuelos charter y servicios ejecutivos</li>
+                    <li>Transporte de pasajeros</li>
+                    <li>Operaciones en zonas remotas (Beni, Pando)</li>
+                    <li>Cumplimiento DGAC y normativas internacionales</li>
+                </ul>
             </div>
-            <div class="fleet-container">
-                <h3 style="color: var(--primary); text-align: center; margin-bottom: 1rem;">Vehículos y Aeronaves</h3>
-                <div class="fleet-grid">
-                    <div class="fleet-item">
-                        <h4>Camiones de Carga</h4>
-                        <p>Vehículos de diferentes capacidades para transporte terrestre de mercancías</p>
-                    </div>
-                    <div class="fleet-item">
-                        <h4>Avionetas</h4>
-                        <p>Aeronaves para transporte aéreo de carga y pasajeros en rutas nacionales</p>
-                    </div>
-                    <div class="fleet-item">
-                        <h4>Vehículos de Pasajeros</h4>
-                        <p>Unidades modernas para transporte de personal y grupos</p>
-                    </div>
-                    <div class="fleet-item">
-                        <h4>Equipos Especializados</h4>
-                        <p>Vehículos y equipos adaptados para carga especial y mercancías específicas</p>
-                    </div>
+
+            <!-- Transporte Terrestre -->
+            <div class="service-card">
+                <span class="service-icon">🚛</span>
+                <h3 class="service-title">Transporte Terrestre</h3>
+                <p class="service-description">
+                    Flota moderna de vehículos para transporte de carga pesada, mercancías especializadas y logística de distribución en todo el territorio nacional.
+                </p>
+                <ul class="service-features">
+                    <li>Transporte de carga pesada y voluminosa</li>
+                    <li>Distribución urbana e interurbana</li>
+                    <li>Logística refrigerada</li>
+                    <li>Transporte de mercancías peligrosas</li>
+                    <li>Rastreo satelital GPS en tiempo real</li>
+                </ul>
+            </div>
+
+            <!-- Logística Integral -->
+            <div class="service-card">
+                <span class="service-icon">📦</span>
+                <h3 class="service-title">Logística Integral</h3>
+                <p class="service-description">
+                    Servicios completos de almacenamiento, distribución, consolidación de carga y gestión de cadena de suministro para optimizar operaciones logísticas.
+                </p>
+                <ul class="service-features">
+                    <li>Almacenamiento y bodegaje</li>
+                    <li>Consolidación y desconsolidación de carga</li>
+                    <li>Distribución last-mile</li>
+                    <li>Gestión de inventarios</li>
+                    <li>Consultoría en cadena de suministro</li>
+                </ul>
+            </div>
+
+            <!-- Servicios Aduanales -->
+            <div class="service-card">
+                <span class="service-icon">📋</span>
+                <h3 class="service-title">Agenciamiento y Aduana</h3>
+                <p class="service-description">
+                    Servicios de agenciamiento de carga, despacho aduanero y gestoría documental para importaciones y exportaciones.
+                </p>
+                <ul class="service-features">
+                    <li>Agenciamiento de carga aérea y terrestre</li>
+                    <li>Despacho aduanero de importación/exportación</li>
+                    <li>Gestoría documental completa</li>
+                    <li>Asesoría en comercio exterior</li>
+                    <li>Coordinación con Aduana Nacional</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section class="fleet" id="flota">
+        <div class="fleet-container">
+            <div class="fleet-header">
+                <div class="section-label">Nuestra Flota</div>
+                <h2 class="section-title">Activos de Transporte</h2>
+                <p class="section-description">
+                    Inversión estratégica en vehículos y aeronaves modernas para garantizar operaciones seguras y eficientes.
+                </p>
+            </div>
+            <div class="fleet-grid">
+                <!-- Aeronaves -->
+                <div class="fleet-card">
+                    <span class="fleet-icon">✈️</span>
+                    <h3 class="fleet-name">Aeronaves de Carga</h3>
+                    <div class="fleet-type">Transporte Aéreo</div>
+                    <p class="fleet-description">
+                        Avionetas especializadas para operaciones en pistas cortas y regiones de difícil acceso, especialmente diseñadas para las condiciones del Beni y el Altiplano boliviano. Capacidad de carga optimizada para productos perecederos y mercancías urgentes.
+                    </p>
+                </div>
+
+                <!-- Camiones -->
+                <div class="fleet-card">
+                    <span class="fleet-icon">🚛</span>
+                    <h3 class="fleet-name">Camiones de Carga</h3>
+                    <div class="fleet-type">Transporte Terrestre</div>
+                    <p class="fleet-description">
+                        Flota de camiones de alta capacidad equipados con tecnología de rastreo GPS, sistemas de refrigeración y suspensión especial para transporte de mercancías sensibles. Cumplimiento total de normativas ATT y especificaciones técnicas vigentes.
+                    </p>
+                </div>
+
+                <!-- Vehículos Especializados -->
+                <div class="fleet-card">
+                    <span class="fleet-icon">🚐</span>
+                    <h3 class="fleet-name">Vehículos Especializados</h3>
+                    <div class="fleet-type">Logística Urbana</div>
+                    <p class="fleet-description">
+                        Vehículos de distribución urbana para entregas express y logística last-mile en las principales ciudades bolivianas. Unidades adaptadas para diferentes tipos de carga y con mantenimiento preventivo programado.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Operaciones -->
-    <section id="operaciones" class="operations">
-        <div class="container">
-            <div class="section-title">
-                <h2>Áreas de Operación</h2>
-                <p>Contamos con presencia en las regiones estratégicas para la logística en Bolivia</p>
+    <!-- Coverage Section -->
+    <section class="coverage" id="cobertura">
+        <div class="coverage-container">
+            <div class="coverage-content">
+                <div class="section-label" style="color: var(--accent-gold-light);">Alcance Nacional</div>
+                <h2 class="section-title" style="color: var(--bg-white);">Cobertura Geográfica</h2>
+                <p class="section-description" style="color: rgba(255, 255, 255, 0.8); margin-bottom: 3rem;">
+                    Operamos en las principales rutas comerciales de Bolivia, conectando centros urbanos, zonas industriales y regiones remotas.
+                </p>
+                <div class="coverage-list">
+                    <div class="coverage-item">
+                        <span class="coverage-item-icon">🏙️</span>
+                        <div class="coverage-item-text">
+                            <h3>Santa Cruz</h3>
+                            <p>
+                                Hub logístico principal con conexión al aeropuerto internacional Viru Viru y carreteras hacia Brasil. Centro de operaciones para distribución al oriente boliviano.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="coverage-item">
+                        <span class="coverage-item-icon">⛰️</span>
+                        <div class="coverage-item-text">
+                            <h3>Altiplano</h3>
+                            <p>
+                                Rutas terrestres hacia La Paz, El Alto y Oruro, con servicios especializados para carga pesada y transporte de mercancías hacia Perú y puertos del Pacífico.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="coverage-item">
+                        <span class="coverage-item-icon">🌴</span>
+                        <div class="coverage-item-text">
+                            <h3>Beni y Pando</h3>
+                            <p>
+                                Operaciones aéreas especializadas para regiones amazónicas con infraestructura terrestre limitada. Transporte esencial de suministros, productos agrícolas y pasajeros.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="operations-grid">
-                <div class="operation-item">
-                    <div class="operation-img" style="background-color: #e3f2fd;">
-                        SANTA CRUZ - HUB LOGÍSTICO
-                    </div>
-                    <div class="operation-content">
-                        <h4>Centro Logístico Principal</h4>
-                        <p>Operaciones en Santa Cruz como hub logístico principal, aprovechando su conexión con Brasil y posición estratégica en el oriente boliviano.</p>
-                    </div>
+            <div class="coverage-stats">
+                <div class="coverage-stat-card">
+                    <h3>Inversión en Flota</h3>
+                    <div class="coverage-stat-number">Bs. 4.17M</div>
+                    <p class="coverage-stat-description">
+                        Adquisición de 2 camiones de carga pesada y 1 avioneta para operaciones aéreas, totalizando una inversión estratégica de primer nivel.
+                    </p>
                 </div>
-                <div class="operation-item">
-                    <div class="operation-img" style="background-color: #fff3e0;">
-                        ALTIPLANO
-                    </div>
-                    <div class="operation-content">
-                        <h4>Transporte Terrestre</h4>
-                        <p>Operaciones en el Altiplano para carga terrestre de y hacia Perú, conectando los principales centros comerciales de la región.</p>
-                    </div>
+                <div class="coverage-stat-card">
+                    <h3>Costos Operativos</h3>
+                    <div class="coverage-stat-number">Bs. 278K</div>
+                    <p class="coverage-stat-description">
+                        Mensuales, incluyendo combustible, mantenimiento, salarios de pilotos y conductores, seguros y tasas regulatorias.
+                    </p>
                 </div>
-                <div class="operation-item">
-                    <div class="operation-img" style="background-color: #e8f5e9;">
-                        BENI - TRANSPORTE AÉREO
-                    </div>
-                    <div class="operation-content">
-                        <h4>Logística Aérea</h4>
-                        <p>Operaciones en el Beni especializadas en transporte aéreo de carga, considerando la geografía particular de la región.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Grupo Zénit -->
-    <section id="grupo-zenit" class="group">
-        <div class="container">
-            <div class="section-title">
-                <h2>Grupo Zénit</h2>
-                <p>Conozca las demás empresas que forman parte de nuestro holding empresarial</p>
-            </div>
-            
-            <div class="group-grid">
-                <div class="group-card">
-                    <div class="group-icon">🏦</div>
-                    <h3>Zénit Financiera</h3>
-                    <p>Servicios financieros y gestión de inversiones</p>
-                    <a href="https://gersonisai.github.io/Z-nit-Financiera-S.A./" class="btn btn-small" target="_blank" aria-label="Visitar sitio web de Zénit Financiera">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
-                </div>
-                
-                <div class="group-card">
-                    <div class="group-icon">💻</div>
-                    <h3>Zénit Software</h3>
-                    <p>Desarrollo de software y soluciones tecnológicas</p>
-                    <a href="https://gersonisai.github.io/Z-nit-Software-Solutions-S.A./" class="btn btn-small" target="_blank" aria-label="Visitar sitio web de Zénit Software">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
-                </div>
-                
-                <div class="group-card">
-                    <div class="group-icon">🌱</div>
-                    <h3>Zénit Agro-Industrias</h3>
-                    <p>Operaciones agropecuarias y producción de alimentos</p>
-                    <a href="https://gersonisai.github.io/Z-nit-Agro-Industrias-S.A./" class="btn btn-small" target="_blank" aria-label="Visitar sitio web de Zénit Agro-Industrias">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
-                </div>
-                
-                <div class="group-card">
-                    <div class="group-icon">🏨</div>
-                    <h3>Zénit Hospitality</h3>
-                    <p>Hotelería, restaurantes y entretenimiento</p>
-                    <a href="https://gersonisai.github.io/Z-nit-Hospitality-Group-S.A./" class="btn btn-small" target="_blank" aria-label="Visitar sitio web de Zénit Hospitality">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
-                </div>
-                
-                <div class="group-card">
-                    <div class="group-icon">⚖️</div>
-                    <h3>Zénit Yasi K'ari</h3>
-                    <p>Servicios legales y consultoría jurídica</p>
-                    <a href="https://gersonisai.github.io/yasikari-web/" class="btn btn-small" target="_blank" aria-label="Visitar sitio web de Zénit Yasi K'ari">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
-                </div>
-                
-                <div class="group-card">
-                    <div class="group-icon">💊</div>
-                    <h3>Zénit Pharma</h3>
-                    <p>Comercialización de productos farmacéuticos</p>
-                    <a href="https://gersonisai.github.io/Z-nit-Pharma-S.A./" class="btn btn-small" target="_blank" aria-label="Visitar sitio web de Zénit Pharma">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
-                </div>
-                
-                <div class="group-card">
-                    <div class="group-icon">🏢</div>
-                    <h3>Grupo Zénit S.A.</h3>
-                    <p>Holding empresarial - Sitio principal</p>
-                    <a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" class="btn btn-small" target="_blank" aria-label="Visitar sitio web del Grupo Zénit">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
-                </div>
-                
-                <div class="group-card">
-                    <div class="group-icon">👤</div>
-                    <h3>Sitio Personal</h3>
-                    <p>Gerson Isai Machua Oniava - Presidente del Directorio</p>
-                    <a href="https://sites.google.com/view/gerson-isai-machua-oniava/inicio" class="btn btn-small btn-secondary" target="_blank" aria-label="Visitar sitio personal de Gerson">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
+                <div class="coverage-stat-card">
+                    <h3>Infraestructura</h3>
+                    <div class="coverage-stat-number">Bs. 174K</div>
+                    <p class="coverage-stat-description">
+                        Inversión en infraestructura básica para operaciones, incluyendo oficinas, hangares y equipamiento logístico.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sobre Nosotros -->
-    <section id="nosotros" class="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>Sobre Nosotros</h2>
-                <p>Conozca más sobre nuestra empresa y nuestro compromiso con la excelencia logística</p>
+    <!-- Investment Section -->
+    <section class="investment">
+        <div class="investment-container">
+            <div class="investment-header">
+                <div class="section-label">Estructura Financiera</div>
+                <h2 class="section-title">Inversión y Licenciamiento</h2>
+                <p class="section-description">
+                    Cumplimiento riguroso de normativas aeronáuticas y de transporte terrestre con inversión en certificaciones y permisos operativos.
+                </p>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Nuestra Misión</h3>
-                    <p>Zénit Cargo & Transport S.A. es una empresa especializada en el desarrollo, operación y comercialización de actividades en el sector de la logística y el transporte, constituida como parte del Grupo Zénit S.A.</p>
-                    <p>Nuestra misión es proporcionar soluciones logísticas integrales que optimicen las cadenas de suministro de nuestros clientes, garantizando eficiencia, seguridad y confiabilidad en todas nuestras operaciones.</p>
-                    
-                    <div class="company-info">
-                        <h3>Información Corporativa</h3>
-                        <p><strong>Zénit Cargo & Transport S.A.</strong> es una sociedad anónima constituida bajo las leyes de Bolivia.</p>
-                        <p>Forma parte del holding empresarial <strong><a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" target="_blank">GRUPO ZÉNIT S.A.</a></strong>, que ejerce la dirección estratégica y supervisión sobre nuestras operaciones.</p>
-                        <div class="company-contact">
-                            <span>📍</span>
-                            <p><strong>Zonas de Rentabilidad:</strong> Santa Cruz (hub logístico), Altiplano, Beni</p>
-                        </div>
-                        <div class="company-contact">
-                            <span>💼</span>
-                            <p><strong>Inversión Inicial:</strong> Bs. 4,524,000 | <strong>Costo Operativo Mensual:</strong> Bs. 278,400</p>
-                        </div>
-                        <div class="founder-links">
-                            <a href="https://sites.google.com/view/gerson-isai-machua-oniava/inicio" class="btn btn-small btn-secondary" target="_blank" aria-label="Visitar sitio personal de Gerson">
-                                <i class="fas fa-user"></i> Sitio Personal del Presidente
-                            </a>
-                        </div>
-                    </div>
+            <div class="investment-grid">
+                <div class="investment-card">
+                    <h3>Inversión Total</h3>
+                    <div class="investment-amount">Bs. 4.52M</div>
+                    <p class="investment-description">
+                        Capital inicial equivalente a $us 650,000 para adquisición de flota, licenciamiento y puesta en marcha de operaciones logísticas integrales.
+                    </p>
+                </div>
+                <div class="investment-card">
+                    <h3>Licencias Operativas</h3>
+                    <div class="investment-amount">Bs. 174K</div>
+                    <p class="investment-description">
+                        Permisos y autorizaciones ante la Dirección General de Aeronáutica Civil (DGAC), Autoridad de Transporte y Telecomunicaciones (ATT) y otras entidades regulatorias.
+                    </p>
+                </div>
+                <div class="investment-card">
+                    <h3>Seguros y Garantías</h3>
+                    <div class="investment-amount">Bs. 34.8K</div>
+                    <p class="investment-description">
+                        Mensuales, cubriendo seguros aeronáuticos, de carga, responsabilidad civil y tasas de operación para protección integral de activos y operaciones.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto" class="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contacto</h2>
-                <p>Póngase en contacto con nosotros para más información sobre nuestros servicios logísticos</p>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3 style="color:var(--primary); margin-bottom:1.5rem;">Información de Contacto</h3>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <h4>Oficinas Principales</h4>
-                            <p>Santa Cruz, Altiplano y Beni, Bolivia</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div>
-                            <h4>Email Corporativo</h4>
-                            <p><a href="mailto:gersonisaimachuaoniava@gmail.com">gersonisaimachuaoniava@gmail.com</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">👤</div>
-                        <div>
-                            <h4>Contacto Principal</h4>
-                            <p>Gerson Isai Machua Oniava<br>Presidente del Directorio - Grupo Zénit</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">🚚</div>
-                        <div>
-                            <h4>Especialización</h4>
-                            <p>Transporte aéreo y terrestre, logística integral, gestión de flotas</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-info">
-                    <h3 style="color:var(--primary); margin-bottom:1.5rem;">Servicios de Transporte</h3>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">✈️</div>
-                        <div>
-                            <h4>Transporte Aéreo</h4>
-                            <p>Carga y pasajeros en rutas nacionales e internacionales</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">🚛</div>
-                        <div>
-                            <h4>Transporte Terrestre</h4>
-                            <p>Flota de camiones y vehículos para diferentes tipos de carga</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📦</div>
-                        <div>
-                            <h4>Logística Integral</h4>
-                            <p>Almacenamiento, distribución y gestión de cadena de suministro</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">🔧</div>
-                        <div>
-                            <h4>Servicios Especializados</h4>
-                            <p>Agenciamiento de carga, transitarios y despachantes de aduana</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="contact-message">
-                <h3 style="color:var(--primary); margin-bottom:1rem;">¿Necesita Soluciones Logísticas?</h3>
-                <p>Para obtener información detallada sobre nuestros servicios, solicitar una cotización o programar una reunión, por favor contáctenos directamente a través de nuestro correo electrónico.</p>
-                <a href="mailto:gersonisaimachuaoniava@gmail.com" class="btn btn-logistics" style="margin-top:1.5rem;" aria-label="Contactar para servicios logísticos">Solicitar Servicio</a>
+    <!-- CTA Section -->
+    <section class="cta" id="contacto">
+        <div class="cta-container">
+            <h2>¿Necesita Soluciones de Transporte y Logística?</h2>
+            <p>
+                Contacte a nuestro equipo comercial para cotizaciones, consultas sobre servicios o información sobre nuestras rutas y capacidades logísticas.
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:gersonisaimachuaoniava@gmail.com" class="btn btn-primary">Solicitar Cotización</a>
+                <a href="https://grupo-z-nit-s-a-three.vercel.app/" class="btn btn-secondary">Grupo Zénit</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>ZÉNIT CARGO & TRANSPORT S.A.</h3>
-                    <p>Empresa especializada en transporte aéreo y terrestre de carga y pasajeros, gestión de flotas y servicios de logística integral, parte del Grupo Zénit S.A.</p>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-brand">Zénit Cargo & Transport</div>
+                    <p class="footer-description">
+                        Filial de GRUPO ZÉNIT S.A. especializada en transporte aéreo y terrestre de carga y pasajeros, gestión de flotas y servicios de logística integral con cobertura nacional e internacional.
+                    </p>
                 </div>
-                
-                <div class="footer-column">
-                    <h3>Enlaces Rápidos</h3>
-                    <ul>
+
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul class="footer-links">
+                        <li><a href="#servicios">Transporte Aéreo</a></li>
+                        <li><a href="#servicios">Transporte Terrestre</a></li>
+                        <li><a href="#servicios">Logística Integral</a></li>
+                        <li><a href="#servicios">Agenciamiento</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul class="footer-links">
                         <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
                         <li><a href="#flota">Nuestra Flota</a></li>
-                        <li><a href="#operaciones">Operaciones</a></li>
-                        <li><a href="#grupo-zenit">Grupo Zénit</a></li>
-                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#cobertura">Cobertura</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-column">
-                    <h3>Contacto</h3>
-                    <ul>
-                        <li>📍 Santa Cruz, Altiplano, Beni, Bolivia</li>
-                        <li>📧 <a href="mailto:gersonisaimachuaoniava@gmail.com" style="color:#ccc; text-decoration:none;">gersonisaimachuaoniava@gmail.com</a></li>
-                        <li>👤 Gerson Isai Machua Oniava</li>
-                        <li>🚚 Especialistas en logística y transporte</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Grupo Zénit</h3>
-                    <ul>
-                        <li><a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" target="_blank">Grupo Zénit S.A.</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Financiera-S.A./" target="_blank">Zénit Financiera</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Software-Solutions-S.A./" target="_blank">Zénit Software</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Agro-Industrias-S.A./" target="_blank">Zénit Agro-Industrias</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Hospitality-Group-S.A./" target="_blank">Zénit Hospitality</a></li>
-                        <li><a href="https://gersonisai.github.io/yasikari-web/" target="_blank">Zénit Yasi K'ari</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Pharma-S.A./" target="_blank">Zénit Pharma</a></li>
-                        <li><a href="https://sites.google.com/view/gerson-isai-machua-oniava/inicio" target="_blank">Sitio Personal Gerson</a></li>
+
+                <div class="footer-section">
+                    <h4>Grupo Zénit</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://grupo-z-nit-s-a-three.vercel.app/" target="_blank">Holding Principal</a></li>
+                        <li><a href="https://z-nit-financiera-s-a.vercel.app/" target="_blank">Financiera</a></li>
+                        <li><a href="https://z-nit-software-solutions-s-a.vercel.app/" target="_blank">Software Solutions</a></li>
+                        <li><a href="https://z-nit-agro-industrias-s-a.vercel.app/" target="_blank">Agro-Industrias</a></li>
+                        <li><a href="https://z-nit-hospitality-group-s-a.vercel.app/" target="_blank">Hospitality Group</a></li>
+                        <li><a href="https://z-nit-yasi-k-ari.vercel.app/" target="_blank">Yasi K'ari Legal</a></li>
+                        <li><a href="https://z-nit-pharma-s-a-xcfa.vercel.app/" target="_blank">Pharma</a></li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="copyright">
-                <p>&copy; 2023 ZÉNIT CARGO & TRANSPORT S.A. - Todos los derechos reservados | Parte de GRUPO ZÉNIT S.A.</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Zénit Cargo & Transport S.A. | Filial de GRUPO ZÉNIT S.A.</p>
+                <div class="footer-legal">
+                    <span>Trinidad, Beni, Bolivia</span>
+                    <a href="mailto:gersonisaimachuaoniava@gmail.com">Contacto</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav').classList.toggle('active');
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a, .btn').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (!href || href.startsWith('mailto:') || href.startsWith('http')) return;
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetElement = document.querySelector(href);
-                if (!targetElement) return;
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-                document.querySelector('nav').classList.remove('active');
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.display = 'none';
+                } else {
+                    navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '100%';
+                    navLinks.style.left = '0';
+                    navLinks.style.right = '0';
+                    navLinks.style.background = 'var(--bg-white)';
+                    navLinks.style.padding = '2rem';
+                    navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                    navLinks.style.zIndex = '999';
+                }
+            });
+        }
     </script>
 </body>
 </html>
